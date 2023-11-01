@@ -1,9 +1,3 @@
-/* 
-  Importante: 
-  No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
-  código dentro de las funciones ya definidas. 
-  No comentar la funcion 
-*/
 function filtrar(funcion) {
   // Escribi una función filtrar en el prototipo de Arrays,
   // que recibe una funcion (callback) que devuelve true o false.
@@ -24,6 +18,7 @@ function filtrar(funcion) {
   // productos.filtrar(function(p) {
   //   return p.price >= 50;
   // }) => [{price: 100, name:'tv'}]
+
   Array.prototype.filtrar = function (funcion) {
     var nuevoArreglo = [];
     for (let i = 0; i < this.length; i++) {
@@ -34,7 +29,3 @@ function filtrar(funcion) {
     return nuevoArreglo;
   };
 }
-
-// No modifiques nada debajo de esta linea //
-
-module.exports = filtrar;

@@ -7,14 +7,27 @@
 function soloNumeros(array) {
   // La funcion llamada 'soloNumeros' recibe como argumento un arreglo de enteros y strings llamado 'array'.
   // Debe devolver un arreglo con solo los enteros.
-  // Ej: 
+  // Ej:
   // soloNumeros([1, 'Henry', 2]) debe retornar [1, 2]
 
   // Tu código aca:
+  numeros = [];
 
+  function esNumero(elemento) {
+    return typeof elemento === "number";
+  }
+
+  for (var i = 0; i < array.length; i++) {
+    if (esNumero(array[i])) {
+      numeros.push(array[i]);
+    }
+  }
+  /*console.log(numeros);*/
+  return numeros;
 }
+
+/*soloNumeros([1, "Henry", 2]);*/
 
 // No modifiques nada debajo de esta linea //
 
-
-module.exports = soloNumeros
+module.exports = soloNumeros;

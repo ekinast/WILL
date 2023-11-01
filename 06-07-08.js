@@ -11,24 +11,25 @@ function crearClasePersona() {
       // Inicializar las propiedades de la persona con los valores recibidos como argumento
 
       // Tu código aca:
-
+      this.nombre = nombre;
+      this.edad = edad;
+      this.hobbies = hobbies;
+      this.amigos = amigos;
     }
 
     addFriend(nombre, edad) {
       // El método 'addFriend' recibe un string 'nombre' y un entero 'edad' y debe agregar un objeto:
       // { nombre: nombre, edad: edad} al arreglo de amigos de la persona.
       // No debe retornar nada.
-
       // Tu código aca:
-
+      this.amigos.push({ nombre, edad });
     }
 
     addHobby(hobby) {
       // El método 'addHobby' recibe un string 'hobby' y debe agregarlo al arreglo de hobbies de la persona.
       // No debe retornar nada.
-
       // Tu código aca:
-
+      this.hobbies.push(hobby);
     }
     getFriends() {
       // El método 'getFriends' debe retornar un arreglo con sólo los nombres del arreglo de amigos
@@ -36,18 +37,19 @@ function crearClasePersona() {
       // Ej:
       // Suponiendo que la persona tiene estos amigos: [{nombre: 'martin', edad: 31},{nombre: 'toni', edad: 33}]
       // persona.getFriends() debería devolver ['martin', 'toni']
-
       // Tu código aca:
 
+      var nombresAmigos = this.amigos.map((amigo) => amigo.nombre);
+      return nombresAmigos;
     }
 
     getHobbies() {
       // El método 'getHobbies' debe retornar un arreglo con los hobbies de la persona
       // Ej:
       // persona.getHobbies() debe devolver ['correr', 'dormir', 'nadar']
-
       // Tu código aca:
-
+      var losHobbies = this.hobbies.map((hobbies) => hobbies);
+      return losHobbies;
     }
 
     getPromedioEdad() {
@@ -64,15 +66,28 @@ function crearClasePersona() {
       //   }]
       // }
       // persona.getPromedioEdad() debería devolver 29 ya que (33 + 25) / 2 = 29
-
       // Tu código aca:
 
+      if (this.amigos.length === 0) {
+        return 0; // Si no tiene amigos, el promedio es 0.
+      }
+
+      // Utilizo reduce para sumar las edades de los amigos
+      var sumaEdades = this.amigos.reduce(
+        (total, amigo) => total + amigo.edad,
+        0
+      );
+
+      // Calculo el promedio dividiendo la suma de edades entre la cantidad de amigos
+      var promedioEdad = sumaEdades / this.amigos.length;
+
+      return promedioEdad;
     }
-  };
+  }
 
   return Persona;
 }
 
 // No modifiques nada debajo de esta linea //
 
-module.exports = crearClasePersona
+module.exports = crearClasePersona;
