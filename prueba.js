@@ -1,4 +1,6 @@
 function filtrar(funcion) {
+  //Este es el archivo que uso para hacer pruebas de código
+
   // Escribi una función filtrar en el prototipo de Arrays,
   // que recibe una funcion (callback) que devuelve true o false.
   // filtrar los elementos de ese arreglo en base al resultado de esa funcion
